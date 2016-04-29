@@ -15,13 +15,13 @@ cite {
 }
 
 section#external-links {
-  width: 200px;
+  width: 20%;
   vertical-align: top;
   display: inline-block;
 }
 
 main {
-  width: 756px;
+  width: 70%;
   vertical-align: top;
   display: inline-block;
 }
@@ -44,5 +44,34 @@ figcaption {
 }
 
 body {
-  width: 960px;
+  max-width: 960px;
 }
+
+@media screen and (max-width: 960px) {
+  main h1 {
+    font-size: 120%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  section#external-links {
+    width: 100%;
+    display: inline;
+    vertical-align: baseline;
+  }
+  main {
+    width: 100%;
+    display: inline;
+    vertical-align: baseline;
+  }
+}
+
+/*
+
+@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+}
+
+*/
