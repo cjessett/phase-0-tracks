@@ -41,5 +41,17 @@ until employees == 0
 		puts "Results inconclusive"
 	end
 
+	while true
+		puts "Please type any allergies, one at a time, then type 'done':"
+		allergy = gets.chomp
+		if allergy == "done"
+			break
+		elsif allergy == "sunshine"
+			puts "Probably a vampire"
+			break
+		end
+	end
+	
 	employees -= 1
 end
+
