@@ -19,16 +19,14 @@ until employees == 0
 
 	probable_age = 2016 - year_born
 
+	# age check
 	if probable_age == age || probable_age == age + 1 # Here I account for someone who hasn't reached their birthday this year
 		correct_age = true
 	else
 		correct_age = false
 	end
 
-	p correct_age
-	p garlic_bread
-	p insurance
-
+	# conditional response
 	if name == "Drake Cula" || name == "Tu Fang"
 		puts "Definitely a vampire."
 	elsif correct_age && ( garlic_bread || insurance )
@@ -41,9 +39,11 @@ until employees == 0
 		puts "Results inconclusive"
 	end
 
+	# allergy test
 	while true
 		puts "Please type any allergies, one at a time, then type 'done':"
 		allergy = gets.chomp
+		
 		if allergy == "done"
 			break
 		elsif allergy == "sunshine"
