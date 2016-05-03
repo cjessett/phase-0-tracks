@@ -1,3 +1,58 @@
 body {
-	background-color: blue;
+  display: block;
+  text-align: center;
+  background-image: url("https://s-media-cache-ak0.pinimg.com/236x/11/8e/6f/118e6f39fac9344d6589c84d5ee9e667.jpg")
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: red;
+}
+
+footer a {
+  color: blue;
+}
+
+header::first-letter {
+  font-size: 200%;
+}
+
+header {
+  display: block;
+  background-color: purple;
+  padding: 5px;
+  margin-bottom: 5px;
+  font-family: serif;
+}
+
+section.column-1 {
+  max-width: 400px;
+  display: inline-block;
+  vertical-align: top;
+  background-color: blue;
+  text-align: center;
+  padding: 10px;
+  height: 1100px;
+  color: white;
+}
+
+section.column-2 {
+  max-width: 400px;
+  display: inline-block;
+  vertical-align: top;
+  background-color: green;
+  text-align: center;
+  padding: 10px;
+  height: 1100px;
+
+}
+
+footer {
+  background-color: yellow;
+  margin-top: 50px;
+  padding: 10px;
+
 }
