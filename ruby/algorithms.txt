@@ -1,0 +1,41 @@
+-- How to use an elevator --
+
+0. Step into the elevator and find the button panel
+
+1. Let 'floor' be an integer I give you
+
+2. Look at the first button on the elevator, on the bottom left
+
+3. If this button only has the integer 'floor' on it, push this button
+
+4. If not, move to the next button
+
+5. Repeat step 3 until you push the button
+
+6. If you don't push a button tell me that floor does not exist
+
+
+
+-- How to make coffee --
+
+0. Obtain pot, stove, coffee beans, grinder, scale, french press
+
+1. Fill pot with at least 900g of water
+
+2. Boil water
+
+3. Measure 60g of coffee beans
+
+4. Grind coffee beans
+
+5. Place in french press
+
+6. When water is boiling, turn off stove and let water sit for 30 seconds. 
+
+7. Pour just enough water in the french press to thoroughly cover the grounds. Stir
+
+8. Let rest for 30 seconds and then pour remaining water into the press. 
+
+9. Let it brew for 4 minutes.
+
+10. Pour coffee into seperate container and enjoy!
