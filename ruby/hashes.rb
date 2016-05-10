@@ -34,12 +34,9 @@ if choice == "none"
 else
   puts "What is the new value for #{choice.to_sym}: "
   updated = gets.chomp
+  key = choice.to_sym
   # Here I make sure to convert to the appropriate data type
-  if choice == "name" || choice == "decor_theme"
-    clients[choice.to_sym] = updated
-  else
-	  clients[choice.to_sym] = updated.to_i
-	end
+  clients[key].class == Fixnum ? clients[key] = updated.to_i : clients[key] = updated
 end
 
 p clients
