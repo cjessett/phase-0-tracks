@@ -29,10 +29,17 @@ p clients
 puts "Enter a key you would like to modify or type none: "
 choice = gets.chomp
 
-if choice = "none"
-	break
-else puts "What is the new value for #{choice.to_sym}: "
-	clients[choice.to_sym] = gets.chomp
+if choice == "none"
+
+else
+  puts "What is the new value for #{choice.to_sym}: "
+  updated = gets.chomp
+  # Here I make sure to convert to the appropriate data type
+  if choice == "name" || choice == "decor_theme"
+    clients[choice.to_sym] = updated
+  else
+	  clients[choice.to_sym] = updated.to_i
+	end
 end
 
 p clients
