@@ -53,19 +53,19 @@ austin_climbing = {
 	}
 }
 
-p "Camping at Enchanted Rock: #{austin_climbing[:e_rock][:info][:camping?]}"
+puts "Camping at Enchanted Rock: #{austin_climbing[:e_rock][:info][:camping?]}"
 
-p "Swimming at the Greenbelt: #{austin_climbing[:greenbelt][:info][:swimming?]}"
+puts "Swimming at the Greenbelt: #{austin_climbing[:greenbelt][:info][:swimming?]}"
 
-p "Popular crags at the Reimer's: #{austin_climbing[:reimers][:popular_crags]}"
+puts "Popular crags at the Reimer's: #{austin_climbing[:reimers][:popular_crags]}"
 
-p "Price of entry for each area: "
+puts "Price of entry for each area: "
 
 # Here I print out the price of admission for each area by iterating through the keys
 i = 0
 keys = austin_climbing.keys
 while i < austin_climbing.keys.length
 	# Here I access the keys by calling their index in the 'keys' array
-	p "#{austin_climbing[keys[i]][:formal_name]}: #{austin_climbing[keys[i]][:info][:price]}"
+	puts "#{austin_climbing[keys[i]][:formal_name]}: #{austin_climbing[keys[i]][:info][:price]}"
 	i += 1
 end
