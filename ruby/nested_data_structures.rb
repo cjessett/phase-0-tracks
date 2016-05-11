@@ -1,4 +1,4 @@
-# Austin Climbing Areas
+# Austin, TX climbing areas and info hash
 
 austin_climbing = {
 	greenbelt: {
@@ -56,6 +56,8 @@ austin_climbing = {
 puts "Camping at Enchanted Rock: #{austin_climbing[:e_rock][:info][:camping?]}"
 
 puts "Swimming at the Greenbelt: #{austin_climbing[:greenbelt][:info][:swimming?]}"
+
+puts "Water at the Greenbelt: #{austin_climbing[:greenbelt][:info][:potable_water]}"
 
 puts "Popular crags at Reimer's: #{austin_climbing[:reimers][:popular_crags]}"
 
