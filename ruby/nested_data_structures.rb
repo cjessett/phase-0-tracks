@@ -57,7 +57,7 @@ puts "Camping at Enchanted Rock: #{austin_climbing[:e_rock][:info][:camping?]}"
 
 puts "Swimming at the Greenbelt: #{austin_climbing[:greenbelt][:info][:swimming?]}"
 
-puts "Popular crags at the Reimer's: #{austin_climbing[:reimers][:popular_crags]}"
+puts "Popular crags at Reimer's: #{austin_climbing[:reimers][:popular_crags]}"
 
 puts "Price of entry for each area: "
 
