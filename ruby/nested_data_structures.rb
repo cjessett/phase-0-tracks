@@ -64,7 +64,7 @@ puts "Price of entry for each area: "
 # Here I print out the price of admission for each area by iterating through the keys
 i = 0
 keys = austin_climbing.keys
-while i < austin_climbing.keys.length
+while i < keys.length
 	# Here I access the keys by calling their index in the 'keys' array
 	puts "#{austin_climbing[keys[i]][:formal_name]}: #{austin_climbing[keys[i]][:info][:price]}"
 	i += 1
