@@ -39,6 +39,12 @@ def next_vowel(char)
 end
 
 def next_consonant(char)
-	char_index
+
+	char == "z" ? new_char = "b" : 	new_char = char.next
+	while $vowels.include?(new_char)
+		new_char = new_char.next
+	end
+	new_char
+end
 
 
