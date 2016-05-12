@@ -80,6 +80,19 @@ def alias_manager(string)
 	new_alias = "#{shift(first_name)} #{shift(last_name)}"
 end
 
+aliases = {}
+
+puts "Enter a name you would like an alias for: "
+name = gets.chomp
+
+while name != "quit"
+	p aliases[name.to_sym] = alias_manager(name)
+	puts "Enter another name or type 'quit': "
+	name = gets.chomp
+end
+
+puts aliases
+
 
 
 
