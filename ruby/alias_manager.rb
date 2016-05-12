@@ -91,7 +91,14 @@ while name != "quit"
 	name = gets.chomp
 end
 
-puts aliases
+keys = aliases.keys
+hash_index = 0
+while hash_index < keys.length
+	puts "#{aliases[keys[hash_index]]} is actually #{keys[hash_index]}"
+	hash_index += 1
+end
+
+
 
 
 
