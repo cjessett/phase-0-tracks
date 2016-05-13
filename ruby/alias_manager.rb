@@ -69,13 +69,13 @@ end
 # The alias manager method take a name as input and seperates the first and last into arrays, 
 # then calls the shift method and finally returns the combined full alias.
 
-def alias_manager(string)
-	string.downcase!
-	array = string.split(' ')
-	array.reverse!
+def alias_manager(real_name_string)
+	real_name_string.downcase!
+	split_name_array = real_name_string.split(' ')
+	split_name_array.reverse!
 
-	first_name = array[0].split('')
-	last_name = array[1].split('')
+	first_name = split_name_array[0].split('')
+	last_name = split_name_array[1].split('')
 
 	new_alias = "#{shift(first_name)} #{shift(last_name)}"
 end
@@ -83,20 +83,24 @@ end
 aliases = {}
 
 puts "Enter a name you would like an alias for: "
-name = gets.chomp
+input_name = gets.chomp
 
-while name != "quit"
-	p aliases[name.to_sym] = alias_manager(name)
+while input_name != "quit"
+	p aliases[input_name.to_sym] = alias_manager(input_name)
 	puts "Enter another name or type 'quit': "
-	name = gets.chomp
+	input_name = gets.chomp
 end
 
+=begin
 keys = aliases.keys
 hash_index = 0
 while hash_index < keys.length
 	puts "#{aliases[keys[hash_index]]} is actually #{keys[hash_index]}"
 	hash_index += 1
 end
+=end
+
+aliases.each { |key,value| puts "#{value} is actually #{key}" }
 
 
 
