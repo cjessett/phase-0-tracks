@@ -37,7 +37,7 @@ example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer n
 # create a santa with random arguments from gender, ethnicity arrays
 # update age
 # print attributes
-10.times { 
+10_000.times { 
 	santa = Santa.new(example_genders.sample, example_ethnicities.sample)
 	p santa.gender
 	p santa.ethnicity
