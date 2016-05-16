@@ -21,6 +21,10 @@ class Puppy
   	'**wags tail**'
   end
 
+  def initialize
+  	p "Initializing new puppy instance..."
+  end
+
 end
 
 fido = Puppy.new
