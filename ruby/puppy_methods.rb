@@ -5,8 +5,8 @@ class Puppy
     toy
   end
 
-  def speak(num_of_times)
-  	num_of_times.times { puts 'Woof!' }
+  def speak(num)
+  	num.times { puts 'Woof!' }
   end
 
   def roll_over
@@ -38,3 +38,30 @@ puts fido.roll_over
 puts fido.dog_years(8)
 
 puts fido.wag_tail
+
+
+
+class Cat
+
+	def initialize
+		p "Initializing new Cat instance..."
+	end
+
+	def speak(num)
+		num.times { puts 'meow' }
+	end
+
+	def purr
+		'**purrs**'
+	end
+
+end
+
+cats = []
+
+50.times { cats << Cat.new }
+
+cats.each { |cat|
+	p cat.speak(1)
+	p cat.purr
+}
