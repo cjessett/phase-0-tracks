@@ -12,13 +12,15 @@
 # attitude_array = ["stoked", "fiesty", "mean", "goofy"]
 
 class Goat
-	attr_accessor :name, :gender
+	attr_accessor :name, :age
 	attr_reader :attitude
 
-	def initialize(name, gender)
+	def initialize(name, age, attitude)
 		puts "Initializing Goat instance..."
+		puts "Baaahhhh"
 		@name = name
-		@gender = gender
+		@age = age
+		@attitude = attitude
 	end
 
 	def milk
@@ -32,4 +34,30 @@ class Goat
 	def speak
 		puts "Baaahhhh"
 	end
+
+	def celebrate_birthday
+		@age += 1
+	end
 end
+
+puts "How many goats would you like to create?"
+num_of_goats = gets.chomp.to_i
+
+goats = []
+attitude_array = ["stoked", "fiesty", "mean", "goofy"]
+
+until goats.length == num_of_goats
+	puts "Input a goat name: "
+	goat_name = gets.chomp
+	puts "Input #{goat_name}'s age: " 
+	goat_age = gets.chomp.to_i
+
+	goats << Goat.new(goat_name, goat_age, attitude_array.sample)
+end
+
+goats.each do |goat|
+	puts "Name: #{goat.name}"
+	puts "Age: #{goat.age}"
+	puts "Attitude: #{goat.attitude}"
+end
+
