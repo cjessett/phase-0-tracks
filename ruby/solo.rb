@@ -8,28 +8,28 @@
 # define class goats
 
 # attributes: attitude, sex, name (accessor)
-# methods: milk, speak(# of times), feed -- changes attitude
+# methods: milk, jump on something, speak -- changes attitude
 # attitude_array = ["stoked", "fiesty", "mean", "goofy"]
 
 class Goat
-	attr_accessor :name
-	attr_reader :attitude, :sex
+	attr_accessor :name, :gender
+	attr_reader :attitude
 
-	
-	@attitude = attitude.sample
-
-	def initialize(name, sex)
-		puts "Initializing goat instance..."
+	def initialize(name, gender)
+		puts "Initializing Goat instance..."
+		@name = name
+		@gender = gender
 	end
 
 	def milk
 		puts "Baaahhhh  **milking**"
 	end
 
-	def speak(num)
-		num.times { puts "Baaahhh" }
+	def jump_on(object)
+		puts "**jumps on #{object}**"
 	end
 
-	def 
-
+	def speak
+		puts "Baaahhhh"
+	end
 end
