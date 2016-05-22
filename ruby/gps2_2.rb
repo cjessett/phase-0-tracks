@@ -89,6 +89,12 @@ puts update_list("Ice Cream 1")
 puts print_list
 
 
+# Refactor:
+
+# change key symbols to strings
+# account for multiple word items (ex: Ice Cream)
+# use #each method to print key/value pairs
+# be more concise with key/value variable names in update/add methods
 
 
 
