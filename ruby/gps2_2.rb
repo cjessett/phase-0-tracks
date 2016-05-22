@@ -39,34 +39,39 @@ $grocery_list = Hash.new
 
 def create_list(string)
 	items = string.split(' ')
-	items.each { |item| $grocery_list[item.to_sym] = 0 }
+	items.each { |item| $grocery_list[item] = 0 }
 	# print hash with print method
 	puts print_list
 end
 
 def add_item(string)
 	add_items = string.split(' ')
-	$grocery_list[add_items[0].to_sym] = add_items[-1].to_i
+	quantity = add_items[-1].to_i
+	item = add_items[0...-1].join(' ')
+	# here we account for multiple word items
+	$grocery_list[item] = quantity
 	# print hash
 	puts print_list
 end
 
 def remove_item(string)
-	key = string.to_sym
-	$grocery_list.delete(key)
+	$grocery_list.delete(string)
 	# print hash
 	puts print_list
 end
 
 def update_list(string)
 	update_item = string.split(' ')
-	$grocery_list[update_item[0].to_sym] = update_item[-1].to_i
+	updated_quantity = update_item[-1].to_i
+	updated_item = update_item[0...-1].join(' ')
+	# again we account for multiple word items
+	$grocery_list[updated_item] = updated_quantity
 	# print hash
 	puts print_list
 end
 
 def print_list
-	$grocery_list
+	$grocery_list.each { |key, value| puts "#{key}: #{value}"}
 end
 
 
