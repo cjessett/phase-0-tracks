@@ -34,3 +34,46 @@
 # steps:
 	# print the grocery_list hash
 # output: grocery_list hash
+
+def create_list(string)
+	grocery_list = Hash.new
+	items = string.split(' ')
+	items.each { |item| grocery_list[item.to_sym] = 0 }
+	# print hash with print method
+	print_list
+end
+
+def add_item(string)
+	add_items = string.split(' ')
+	grocery_list[add_items[0].to_sym] = add_items[-1].to_i
+	# print hash
+	print_list
+end
+
+def remove_item(string)
+	key = string.to_sym
+	grocery_list.delete(key)
+	# print hash
+	print_list
+end
+
+def update_list(string)
+	update_item = string.split(' ')
+	grocery_list[update_item[0].to_sym] = update_item[-1].to_i
+	# print hash
+	print_list
+end
+
+def print_list
+	grocery_list
+end
+
+
+
+
+
+
+
+
+
+
