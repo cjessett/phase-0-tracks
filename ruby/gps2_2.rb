@@ -106,6 +106,37 @@ puts print_list
 
 
 
+# Refect:
+
+=begin
+
+What did you learn about pseudocode from working on this challenge?
+- That each line should be something easily converted into code
+
+What are the tradeoffs of using arrays and hashes for this challenge?
+- Arrays don't really handle the two types of data we are manipulating in this challange.
+- Hashes are great for handling and accessing multiple types of data
+
+What does a method return?
+- It depends on the method but in this challene our methods return whatever they last
+evaluated.
+
+What kind of things can you pass into methods as arguments?
+- All kinds of things! Array, hashes, integers, strings, other methods.
+
+How can you pass information between methods?
+- By calling methods within methods and defining global variables.
+
+What concepts were solidified in this challenge, and what concepts are still confusing?
+- Accessing items in hashes and printing them with the #each method. Global variables
+are still kind of confusing. We weren't exactly sure why our hash had to be definited outside
+of all of the methods as a global variable(with $) instead of without the $.
+
+=end
+
+
+
+
 
 
 
