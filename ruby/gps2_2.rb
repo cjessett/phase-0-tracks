@@ -51,12 +51,14 @@ def add_item(string)
 	# here we account for multiple word items
 	$grocery_list[item] = quantity
 	# print hash
+	puts "Added #{quantity} #{item}"
 	puts print_list
 end
 
 def remove_item(string)
 	$grocery_list.delete(string)
 	# print hash
+	puts "Removed #{string}"
 	puts print_list
 end
 
@@ -67,6 +69,7 @@ def update_list(string)
 	# again we account for multiple word items
 	$grocery_list[updated_item] = updated_quantity
 	# print hash
+	puts "Updated #{updated_item} to #{updated_quantity}"
 	puts print_list
 end
 
