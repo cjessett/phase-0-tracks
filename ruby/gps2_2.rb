@@ -69,6 +69,24 @@ def print_list
 end
 
 
+# Driver code
+
+puts create_list("")
+
+puts add_item("Lemonade 2")
+
+puts add_item("Tomatoes 3")
+
+puts add_item("Onions 1")
+
+puts add_item("Ice Cream 4")
+
+puts remove_item("Lemonade")
+
+puts update_item("Ice Cream 1")
+
+puts print_list
+
 
 
 
