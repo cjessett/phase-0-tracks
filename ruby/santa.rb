@@ -6,16 +6,16 @@ class Santa
 		puts "Initializing Santa instance..."
 		@gender = gender
 		@ethnicity = ethnicity
-		@age = 0
+		@age = rand(0..140)
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
 	end
 
 	def speak
-		puts "Ho, ho, ho! Haaaappy holidays!"
+		"Ho, ho, ho! Haaaappy holidays!"
 	end
 
 	def eat_milk_and_cookies(cookie_type)
-		puts "That was a good #{cookie_type}!"
+		"That was a good #{cookie_type}!"
 	end
 
 	# setter methods
@@ -29,6 +29,9 @@ class Santa
 		@reindeer_ranking.insert(-1, @reindeer_ranking.delete_at(reindeer_idx))
 	end
 
+	def to_s
+		"Gender: #{@gender}\nEthnicity: #{@ethnicity}\nAge: #{@age}"
+	end
 end
 
 # define arrays
@@ -37,9 +40,8 @@ example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer n
 # create a santa with random arguments from gender, ethnicity arrays
 # update age
 # print attributes
-10_000.times { 
+1.times { 
 	santa = Santa.new(example_genders.sample, example_ethnicities.sample)
-	p santa.gender
-	p santa.ethnicity
-	p santa.age = rand(0..140)
+	puts santa
+	puts santa.speak
 }
