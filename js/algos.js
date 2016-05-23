@@ -18,6 +18,10 @@ function longest(array) {
 	return long;
 }
 
+function match(obj1, obj2) {
+	
+}
+
 var result1 = longest(["stirng","acs","adacd","Asdcds","this is the longest"]);
 var result2 = longest(["a","aa","aaa","aba"])
 
