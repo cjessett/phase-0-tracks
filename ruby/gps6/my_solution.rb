@@ -4,8 +4,9 @@
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# require_relative allows you to include files relative to the current directory of the current file.
+# Whereas require uses the load path to locate the required files.
+
 require_relative 'state_data'
 
 class VirusPredictor
@@ -69,7 +70,7 @@ end
 # DRIVER CODE
  # initialize VirusPredictor for each state
 
-
+=begin
 alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
 alabama.virus_effects
 
@@ -81,6 +82,16 @@ california.virus_effects
 
 alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
 alaska.virus_effects
+=end
+
+states = []
+
+STATE_DATA.each do |key, value|
+  states << VirusPredictor.new(key, STATE_DATA[key][:population_density], STATE_DATA[key][:population])
+end
+
+states.each { |state| state.virus_effects }
+
 
 
 #=======================================================================
