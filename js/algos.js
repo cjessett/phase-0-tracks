@@ -56,10 +56,24 @@ function match(obj1, obj2) {
 }
 
 function randWord(randInteger) {
-	
+	var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+	var word = '';
+
+	while (word.length < randInteger) {
+		var random = Math.floor((Math.random() * 26) + 1);
+		word += alphabet[random];
+	}
+	return word;
 }
 
 function randStrings(integer) {
+	var words = [];
+	var random = Math.floor((Math.random() * 10) + 1)
+
+	while (words.length < integer) {
+		words.push(randWord(random));
+	}
+	return words;
 }
 
 // ==================================================================================
@@ -80,3 +94,11 @@ var obj3 = {name: "Apple", age: 44};
 
 console.log(match(obj1,obj2));
 console.log(match(obj2,obj3));
+
+// random strings function
+console.log(randStrings(3));
+console.log(randStrings(5));
+
+
+
+
