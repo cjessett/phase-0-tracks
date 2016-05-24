@@ -1,12 +1,31 @@
-// In algos.js, write a function that takes two objects and checks to see if the objects share at
-// least one key-value pair. (You'll keep adding to this file, so we suggest grouping functions at the 
-// top and testing at the bottom of the file.) If we called your function with {name: "Steven", age: 54} 
-// and {name: "Tamir", age: 54}, the function would return true, because at least one key-value pair matches 
-// between the two objects. If no pairs match (and keep in mind that the two objects may not even have any 
-// of the same keys), the function should return false. To make your life easier, don't worry about whether 
-// a property is a string ('age') or an identifier name (age). Those can be considered equivalent. Again, 
-// try to reason through the problem using the basics you've already learned, rather than looking up slick 
-// search functions that will do the job for you. We'd rather see you write code that you actually understand!
+// Write a function that takes an integer for length, and builds and returns an array of 
+// strings of the given length. So if we ran your function with an argument of 3, we would get 
+// an array of 3 random words back (the words don't have to be actual sensical English words --
+//  "nnnnfph" totally counts). The words should be of randomly varying length, with a minimum of 1 
+// letter and a maximum of 10 letters. (This involves a new trick, generating a random number, that 
+// you'll have to look up, but the solution on how to do so is relatively straightforward.)
+
+// input: integer
+// output: array of strings of given length, rand length from 1..10
+
+
+// function that returns array of given length with random words
+	// input: integer
+	// create words array
+	// WHILE words array length < integer
+		// call random word function with random integer (1..10)
+		// push return value to words
+	// return array
+
+// function that generates random word of given length
+	// input: random length for word (1..10)
+	// create alphabet string variable
+	// create word variable as empty string
+	// WHILE word length < input
+		// generate random index (1..26)
+		// push random letter to word string
+	// return word
+
 
 
 
@@ -34,6 +53,13 @@ function match(obj1, obj2) {
 		}
 	}
 	return false;
+}
+
+function randWord(randInteger) {
+	
+}
+
+function randStrings(integer) {
 }
 
 // ==================================================================================
