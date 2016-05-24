@@ -1,9 +1,4 @@
-// Write a function that takes an integer for length, and builds and returns an array of 
-// strings of the given length. So if we ran your function with an argument of 3, we would get 
-// an array of 3 random words back (the words don't have to be actual sensical English words --
-//  "nnnnfph" totally counts). The words should be of randomly varying length, with a minimum of 1 
-// letter and a maximum of 10 letters. (This involves a new trick, generating a random number, that 
-// you'll have to look up, but the solution on how to do so is relatively straightforward.)
+// random test data generator pseudo
 
 // input: integer
 // output: array of strings of given length, rand length from 1..10
@@ -26,9 +21,10 @@
 		// push random letter to word string
 	// return word
 
+// ======================================================================
+// Functions
 
-
-
+// Longest word function
 function longest(array) {
 	var long = "";
 	var i = 0; 
@@ -41,6 +37,7 @@ function longest(array) {
 	return long;
 }
 
+// key-value match function
 function match(obj1, obj2) {
 	var keys1 = Object.keys(obj1);
 	var keys2 = Object.keys(obj2);
@@ -55,6 +52,7 @@ function match(obj1, obj2) {
 	return false;
 }
 
+// The following two functions generate random test data
 function randWord(randInteger) {
 	var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 	var word = '';
@@ -96,8 +94,13 @@ console.log(match(obj1,obj2));
 console.log(match(obj2,obj3));
 
 // random strings function
-console.log(randStrings(3));
-console.log(randStrings(5));
+for (var i = 0; i < 10; i++) {
+	var array = randStrings(5);
+	console.log("The longest string in");
+	console.log(array);
+	console.log("is " + longest(array));
+	console.log("========================================")
+}
 
 
 
