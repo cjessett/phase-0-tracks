@@ -58,7 +58,7 @@ function randWord(randInteger) {
 	var word = '';
 
 	while (word.length < randInteger) {
-		var random = Math.floor((Math.random() * 26) + 1);
+		var random = Math.floor((Math.random() * 25) + 1);
 		word += alphabet[random];
 	}
 	return word;
