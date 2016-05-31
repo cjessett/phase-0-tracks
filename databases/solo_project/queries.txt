@@ -61,3 +61,12 @@ OUTPUT:
 id|name|phone|eggs|size
 1|John Doe|5120009988|true|1
 2|Alice Smith|5129990908|true|2
+
+6. Reseach on JOIN statements.
+
+INPUT: SELECT * FROM share_size JOIN members
+		USING (id);
+
+OUTPUT: 
+1|FULL|John Doe|5120009988|true|1
+2|HALF|Alice Smith|5129990908|true|2
