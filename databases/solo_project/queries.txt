@@ -1,0 +1,63 @@
+1. Display the information in one table (either table is fine).
+
+(note headers are on with '.headers on')
+
+INPUT: SELECT * FROM members;
+
+OUTPUT: 
+id|name|phone|eggs|size
+1|John Doe|5120009988|true|1
+2|Alice Smith|5129990908|false|2
+3|Mister Bob|5121119900|true|2
+
+
+2. Update an item that meets some condition (you can choose a condition that makes sense)
+
+INPUT: UPDATE members
+	   SET eggs="true" WHERE eggs="false";
+	   SELECT * FROM members;
+
+OUTPUT:
+
+id|name|phone|eggs|size
+1|John Doe|5120009988|true|1
+2|Alice Smith|5129990908|true|2
+3|Mister Bob|5121119900|true|2
+
+
+3. Display the information in both tables using one query.
+
+INPUT: SELECT * FROM members JOIN share_size ON members.size = share_size.id;
+
+OUTPUT: 
+
+id|name|phone|eggs|size|id|size
+1|John Doe|5120009988|true|1|1|FULL
+2|Alice Smith|5129990908|true|2|2|HALF
+3|Mister Bob|5121119900|true|2|2|HALF
+
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+INPUT:  SELECT members.name, members.eggs, share_size.size 
+		FROM members JOIN share_size 
+		ON members.size = share_size.id;
+
+OUTPUT: 
+
+name|eggs|size
+John Doe|true|FULL
+Alice Smith|true|HALF
+Mister Bob|true|HALF
+
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense)
+
+INPUT: DELETE FROM members WHERE name="Mister Bob";
+		SELECT * FROM members;
+
+OUTPUT: 
+
+id|name|phone|eggs|size
+1|John Doe|5120009988|true|1
+2|Alice Smith|5129990908|true|2
