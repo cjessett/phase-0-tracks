@@ -6,8 +6,8 @@ CREATE TABLE csa_members (
 	phone INT,
 	eggs boolean,
 	size INT,
-	FOREIGN KEY (size) REFERENCES sizes(id)
 	location INT,
+	FOREIGN KEY (size) REFERENCES sizes(id),
 	FOREIGN KEY (location) REFERENCES locations(id)
 );
 
