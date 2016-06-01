@@ -1,42 +1,44 @@
 ** CSA MEMBERS DB **
 
 CREATE TABLE csa_members (
-	id integer,
-	name varchar,
-	phone integer,
+	id INTEGER PRIMARY KEY,
+	name VARCHAR(255),
+	phone INT,
 	eggs boolean,
-	size varchar,
-	location integer
+	size INT,
+	FOREIGN KEY (size) REFERENCES sizes(id)
+	location INT,
+	FOREIGN KEY (location) REFERENCES locations(id)
 );
 
 CREATE TABLE sizes (
-	id integer,
-	size varchar
+	id INTEGER PRIMARY KEY,
+	size VARCHAR(255)
 );
 
 CREATE TABLE locations (
-	id integer,
-	location varchar
+	id INTEGER PRIMARY KEY,
+	location VARCHAR(255)
 );
 
 
 ** BED DB ***
 
 CREATE TABLE beds (
-	id integer,
+	id INTEGER PRIMARY KEY,
 	name varchar,
 	length integer,
 	rows integer
 );
 
 CREATE TABLE crops (
-	id integer,
+	id INTEGER PRIMARY KEY,
 	name varchar,
 	spacing integer
 );
 
 CREATE TABLE plantings (
-	id integer,
+	id INTEGER PRIMARY KEY,
 	seeded date,
 	transplanted date,
 	crop integer,
@@ -46,7 +48,7 @@ CREATE TABLE plantings (
 );
 
 CREATE TABLE harvests (
-	id integer,
+	id INTEGER PRIMARY KEY,
 	date date,
 	crop integer,
 	bed integer,
