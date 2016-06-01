@@ -1,0 +1,56 @@
+** CSA MEMBERS DB **
+
+CREATE TABLE csa_members (
+	id integer,
+	name varchar,
+	phone integer,
+	eggs boolean,
+	size varchar,
+	location integer
+);
+
+CREATE TABLE sizes (
+	id integer,
+	size varchar
+);
+
+CREATE TABLE locations (
+	id integer,
+	location varchar
+);
+
+
+** BED DB ***
+
+CREATE TABLE beds (
+	id integer,
+	name varchar,
+	length integer,
+	rows integer
+);
+
+CREATE TABLE crops (
+	id integer,
+	name varchar,
+	spacing integer
+);
+
+CREATE TABLE plantings (
+	id integer,
+	seeded date,
+	transplanted date,
+	crop integer,
+	bed integer,
+	maturity date,
+	last_weeding date
+);
+
+CREATE TABLE harvests (
+	id integer,
+	date date,
+	crop integer,
+	bed integer,
+	lbs_plant integer,
+	lbs_ft integer,
+	lbs integer
+);
