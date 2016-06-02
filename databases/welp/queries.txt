@@ -1,0 +1,58 @@
+You've joined two tables before. How do you join three?
+
+INPUT:
+-------
+SELECT * FROM reviews
+JOIN businesses ON reviews.business_id = businesses.id
+JOIN users ON reviews.user_id = users.id;
+
+OUTPUT:
+----------
+1|5|amazing instructors|4|3|4|Lotus Yoga|3|Angela|Jolie
+2|4|super cool people, given the situation|2|4|2|Amir's Towing|4|Steven|Wonder
+3|2|no beer!|3|1|3|The Beagle Nightclub|1|Bradford|Pitt
+4|1|no one is ever here!|1|2|1|Grundy Hollow Wedding Chapel|2|Mandy|Kaling
+5|4|awesome yoga studio!|4|1|4|Lotus Yoga|1|Bradford|Pitt
+6|2|I dislike yoga|4|2|4|Lotus Yoga|2|Mandy|Kaling
+
+=========================================================================
+
+There are some repetitive columns if we choose to view all fields. Choose instead to just view the user's names, the business name, the star rating, and the comment.
+
+INPUT:
+--------
+SELECT businesses.name, reviews.stars, reviews.comment, users.first_name
+FROM reviews
+JOIN businesses ON reviews.business_id = businesses.id
+JOIN users ON reviews.user_id = users.id;
+
+OUTPUT: (.mode column, .headers on)
+------------------------------------
+
+name        stars       comment              first_name
+----------  ----------  -------------------  ----------
+Lotus Yoga  5           amazing instructors  Angela
+Amir's Tow  4           super cool people,   Steven
+The Beagle  2           no beer!             Bradford
+Grundy Hol  1           no one is ever here  Mandy
+Lotus Yoga  4           awesome yoga studio  Bradford
+Lotus Yoga  2           I dislike yoga       Mandy
+
+=======================================================================
+
+How do you view the data of all three tables for just one particular business? 
+
+INPUT:
+--------
+SELECT businesses.name, reviews.stars, reviews.comment, users.first_name FROM reviews
+JOIN businesses ON reviews.business_id = businesses.id
+JOIN users ON reviews.user_id = users.id
+WHERE businesses.name = "Lotus Yoga";
+
+OUTPUT: (.mode column, .headers on)
+---------
+name        stars       comment              first_name
+----------  ----------  -------------------  ----------
+Lotus Yoga  5           amazing instructors  Angela
+Lotus Yoga  4           awesome yoga studio  Bradford
+Lotus Yoga  2           I dislike yoga       Mandy
