@@ -1,5 +1,12 @@
 # CSA member manager
 
+=begin
+1. Allow users to add members to database
+2. Allow users to access(read) members info in database
+3. Allow users to alter member info
+4. Allow users to deletee members
+=end
+
 # require gems
 require 'sqlite3'
 require 'faker'
@@ -42,6 +49,45 @@ SQL
 db.execute(create_sizes_cmd)
 db.execute(create_locations_cmd)
 db.execute(create_members_cmd)
+
+# add sizes and locations
+db.execute("INSERT INTO sizes (size) VALUES (FULL), (HALF)")
+db.execute("INSERT INTO locations (location) VALUES (FARM), (MARKET)")
+
+# Display user options
+puts "What would you like to do today:"
+puts "To DISPLAY members' info: type 'display'."
+puts "To ADD a member: type 'add'."
+puts "To UPDATE a member's info: type 'update'."
+puts "To DELETE a member: type 'delete'."
+choice = gets.chomp
+
+# create member method
+def create_member(db, name, phone, eggs, size, location)
+	db.execute("INSERT INTO csa (name, phone, eggs, size, location) VALUES (?, ?, ?, ?, ?)", [name, phone, eggs, size, location])
+end
+
+# Add members UI
+puts "Member's name:"
+new_member = gets.chomp
+
+puts "Enter #{new_member}'s phone number as only digits:"
+new_member_number = gets.chomp.to_i
+
+puts "Enter 'true' if #{new_member} would like to add eggs, otherwise 'false':"
+gets.chomp == "true" ? new_member_eggs = true : new_member_eggs = false
+
+puts "Enter size of share: 'full' or 'half':"
+gets.chomp == "full" ? new_member_size = 1 : new_member_size = 2
+
+puts "Enter location of pickup: type 'farm' or 'market':"
+gets.chomp == "farm" ? new_member_location = 1 : new_member_location = 2
+
+
+
+create_member(db, new_member, new_member_number, new_member_eggs, new_member_size, new_member_location)
+
+
 
 
 
