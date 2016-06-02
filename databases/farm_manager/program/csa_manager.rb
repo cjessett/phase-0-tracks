@@ -45,6 +45,15 @@ create_members_cmd = <<-SQL
 	)
 SQL
 
+display_members_cmd = <<-SQL
+		.headers on
+		.mode column
+		SELECT csa_members.name, csa_members.eggs, sizes.size, locations.location 
+		FROM csa_members 
+		JOIN sizes ON csa_members.size = sizes.id
+		JOIN locations ON csa_members.location = locations.id
+SQL
+
 # create tables
 db.execute(create_sizes_cmd)
 db.execute(create_locations_cmd)
@@ -67,6 +76,12 @@ def create_member(db, name, phone, eggs, size, location)
 	db.execute("INSERT INTO csa (name, phone, eggs, size, location) VALUES (?, ?, ?, ?, ?)", [name, phone, eggs, size, location])
 end
 
+# display member method
+def display_members(db)
+	db.execute(display_members_cmd)
+end
+
+
 # Add members UI
 puts "Member's name:"
 new_member = gets.chomp
@@ -83,9 +98,11 @@ gets.chomp == "full" ? new_member_size = 1 : new_member_size = 2
 puts "Enter location of pickup: type 'farm' or 'market':"
 gets.chomp == "farm" ? new_member_location = 1 : new_member_location = 2
 
-
-
+# call methods to create new member and display all members
 create_member(db, new_member, new_member_number, new_member_eggs, new_member_size, new_member_location)
+display_members(db)
+
+
 
 
 
