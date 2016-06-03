@@ -6,10 +6,10 @@ Display members' name, share size, eggs, and location of pick-up
 <<-SQL
 .headers on
 .mode column
-SELECT csa_members.name, csa_members.eggs, sizes.size, locations.location 
-FROM csa_members 
-JOIN sizes ON csa_members.size = sizes.id
-JOIN locations ON csa_members.location = locations.id
+SELECT members.name, members.eggs, sizes.size, locations.location 
+FROM members 
+JOIN sizes ON members.size = sizes.id
+JOIN locations ON members.location = locations.id
 SQL
 --------------------------------------------------------------------------
 
@@ -20,4 +20,3 @@ INSERT INTO csa_members (name, phone, eggs, size, location)
 VALUES (?, ?, ?, ?, ?)
 SQL
 ------------------------------------
-

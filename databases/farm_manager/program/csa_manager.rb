@@ -45,23 +45,14 @@ create_members_cmd = <<-SQL
 	)
 SQL
 
-display_members_cmd = <<-SQL
-		.headers on
-		.mode column
-		SELECT csa_members.name, csa_members.eggs, sizes.size, locations.location 
-		FROM csa_members 
-		JOIN sizes ON csa_members.size = sizes.id
-		JOIN locations ON csa_members.location = locations.id
-SQL
-
 # create tables
 db.execute(create_sizes_cmd)
 db.execute(create_locations_cmd)
 db.execute(create_members_cmd)
 
 # add sizes and locations
-db.execute("INSERT INTO sizes (size) VALUES (FULL), (HALF)")
-db.execute("INSERT INTO locations (location) VALUES (FARM), (MARKET)")
+db.execute("INSERT INTO sizes (size) VALUES (?), (?)", ["FULL"], ["HALF"])
+db.execute("INSERT INTO locations (location) VALUES (?), (?)", ["FARM"], ["MARKET"])
 
 # Display user options
 puts "What would you like to do today:"
@@ -73,12 +64,18 @@ choice = gets.chomp
 
 # create member method
 def create_member(db, name, phone, eggs, size, location)
-	db.execute("INSERT INTO csa (name, phone, eggs, size, location) VALUES (?, ?, ?, ?, ?)", [name, phone, eggs, size, location])
+	db.execute("INSERT INTO members (name, phone, eggs, size, location) VALUES (?, ?, ?, ?, ?)", [name, phone, eggs, size, location])
 end
 
 # display member method
 def display_members(db)
-	db.execute(display_members_cmd)
+	display_members_cmd = <<-SQL
+		SELECT members.name, members.eggs, sizes.size, locations.location 
+		FROM members 
+		JOIN sizes ON members.size = sizes.id 
+		JOIN locations ON members.location = locations.id
+	SQL
+	puts db.execute(display_members_cmd)
 end
 
 
@@ -90,7 +87,7 @@ puts "Enter #{new_member}'s phone number as only digits:"
 new_member_number = gets.chomp.to_i
 
 puts "Enter 'true' if #{new_member} would like to add eggs, otherwise 'false':"
-gets.chomp == "true" ? new_member_eggs = true : new_member_eggs = false
+new_member_eggs = gets.chomp
 
 puts "Enter size of share: 'full' or 'half':"
 gets.chomp == "full" ? new_member_size = 1 : new_member_size = 2
