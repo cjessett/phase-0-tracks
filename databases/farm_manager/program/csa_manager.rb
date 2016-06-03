@@ -52,9 +52,11 @@ db.execute(create_sizes_cmd)
 db.execute(create_locations_cmd)
 db.execute(create_members_cmd)
 
-# add sizes and locations
-db.execute("INSERT INTO sizes (size) VALUES (?), (?)", ["FULL"], ["HALF"])
-db.execute("INSERT INTO locations (location) VALUES (?), (?)", ["FARM"], ["MARKET"])
+if db.execute("SELECT COUNT (*) FROM sizes")[0][0] == 0
+	db.execute("INSERT INTO sizes (size) VALUES (?), (?)", ["FULL"], ["HALF"])
+	db.execute("INSERT INTO locations (location) VALUES (?), (?)", ["FARM"], ["MARKET"])
+end
+
 
 # ===============================================================
 
@@ -177,7 +179,7 @@ when 'update'
 	case property_to_update
 	when 'eggs'
 		puts "true or false:"
-		gets.chomp == 'true' ? updated_property_value = true : updated_property_value = false
+		gets.chomp == 'true' ? updated_property_value = 'true' : updated_property_value = 'false'
 	when 'location'
 		puts "farm or market:"
 		gets.chomp == 'farm' ? updated_property_value = 1 : updated_property_value = 2
@@ -193,7 +195,6 @@ when 'update'
 	update_member(db, property_to_update, updated_property_value, member_to_update)
 	# display updated member table
 	display_members(db)
-	
 end
 
 
