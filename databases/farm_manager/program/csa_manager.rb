@@ -20,7 +20,7 @@ create_sizes_cmd = <<-SQL
 	CREATE TABLE IF NOT EXISTS sizes(
 	id INTEGER PRIMARY KEY,
 	size VARCHAR(255)
-	)
+	);
 SQL
 
 # create location table command
@@ -28,7 +28,7 @@ create_locations_cmd = <<-SQL
 	CREATE TABLE IF NOT EXISTS locations (
 		id INTEGER PRIMARY KEY,
 		location VARCHAR(255)
-	)
+	);
 SQL
 
 # create member table command
@@ -42,7 +42,7 @@ create_members_cmd = <<-SQL
 		location INT,
 		FOREIGN KEY (size) REFERENCES sizes(id),
 		FOREIGN KEY (location) REFERENCES locations(id)
-	)
+	);
 SQL
 
 # create tables
@@ -69,35 +69,58 @@ end
 
 # display member method
 def display_members(db)
+	db.results_as_hash = true
 	display_members_cmd = <<-SQL
-		SELECT members.name, members.eggs, sizes.size, locations.location 
+		SELECT members.name, members.eggs, sizes.size, locations.location, members.phone
 		FROM members 
 		JOIN sizes ON members.size = sizes.id 
 		JOIN locations ON members.location = locations.id
 	SQL
-	puts db.execute(display_members_cmd)
+	results = db.execute(display_members_cmd)
+	results.each do |member|
+		puts "#{member["name"]} | #{member["phone"]} | Size: #{member["size"]} | Eggs: #{member["eggs"]} | Pick-Up: #{member["location"]}"
+	end
+end
+
+# delete member method
+
+
+case choice
+when 'add'
+
+# Add members UI
+	puts "Member's name:"
+	new_member = gets.chomp
+
+	puts "Enter #{new_member}'s phone number as only digits:"
+	new_member_number = gets.chomp.to_i
+
+	puts "Enter 'true' if #{new_member} would like to add eggs, otherwise 'false':"
+	new_member_eggs = gets.chomp
+
+	puts "Enter size of share: 'full' or 'half':"
+	gets.chomp == "full" ? new_member_size = 1 : new_member_size = 2
+
+	puts "Enter location of pickup: type 'farm' or 'market':"
+	gets.chomp == "farm" ? new_member_location = 1 : new_member_location = 2
+
+	# call methods to create new member and display all members
+	create_member(db, new_member, new_member_number, new_member_eggs, new_member_size, new_member_location)
+	display_members(db)
+
+when 'display'
+
+	display_members(db)
+
+when 'delete'
+
+	
 end
 
 
-# Add members UI
-puts "Member's name:"
-new_member = gets.chomp
 
-puts "Enter #{new_member}'s phone number as only digits:"
-new_member_number = gets.chomp.to_i
 
-puts "Enter 'true' if #{new_member} would like to add eggs, otherwise 'false':"
-new_member_eggs = gets.chomp
-
-puts "Enter size of share: 'full' or 'half':"
-gets.chomp == "full" ? new_member_size = 1 : new_member_size = 2
-
-puts "Enter location of pickup: type 'farm' or 'market':"
-gets.chomp == "farm" ? new_member_location = 1 : new_member_location = 2
-
-# call methods to create new member and display all members
-create_member(db, new_member, new_member_number, new_member_eggs, new_member_size, new_member_location)
-display_members(db)
+		
 
 
 
