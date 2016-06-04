@@ -43,8 +43,7 @@
 + Used for handling sensitive data, for example when sending passwords
 
 
-## Cookies ( not ![alt text][logo] )
-[logo]: http://images.clipartpanda.com/cookie-monster-clip-art-cookiecookiecookie.jpg
+## Cookies ( not ![alt text](http://images.clipartpanda.com/cookie-monster-clip-art-cookiecookiecookie.jpg) )
 ======
 + Cookies are small files which are stored on a user's computer
 + Designed to hold a modest amount of data specific to a particular client and website
