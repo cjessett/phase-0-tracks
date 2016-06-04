@@ -1,7 +1,7 @@
 # HTTP requests
 ======
 
-# Some common HTTP status codes
+## Some common HTTP status codes
 ======
 
 1. [200 OK](http://www.smartlabsoftware.com/ref/http-status-codes.htm#code-200)
@@ -19,3 +19,40 @@
 13. [501 Not Implemented](http://www.smartlabsoftware.com/ref/http-status-codes.htm#code-501)
 14. [503 Service Unavailable](http://www.smartlabsoftware.com/ref/http-status-codes.htm#code-503)
 15. [550 Permission denied](http://www.smartlabsoftware.com/ref/http-status-codes.htm#code-550)
+
+## GET vs. POST requests
+======
+
+### GET
++ Requests data from a specified resource
+
++ can be cached
++ remain in the browser history
++ can be bookmarked
++ should never be used when dealing with sensitive data
++ have length restrictions
++ should be used only to retrieve data
+
++ Used for handling non-sensitive, for example retrieving public information about something
+
+### POST
++ Submits data to be processed to a specified resource
+
++ are never cached
++ do not remain in the browser history
++ cannot be bookmarked
++ have no restrictions on data length
+
++ Used for handling sensitive data, for example when sending passwords
+
+
+## Cookies ( not ![alt text][logo] )
+[logo]: http://images.clipartpanda.com/cookie-monster-clip-art-cookiecookiecookie.jpg
+======
+
++ Cookies are small files which are stored on a user's computer
++ Designed to hold a modest amount of data specific to a particular client and website
++ Can be accessed either by the web server or the client computer
++ Allow the server to deliver a page tailored to a particular user
+
+
