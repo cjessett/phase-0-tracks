@@ -1,9 +1,7 @@
 # HTTP requests
 ======
-
 ## Some common HTTP status codes
 ======
-
 1. [200 OK](http://www.smartlabsoftware.com/ref/http-status-codes.htm#code-200)
 2. [300 Multiple Choices](http://www.smartlabsoftware.com/ref/http-status-codes.htm#code-300)
 3. [301 Moved Permanently](http://www.smartlabsoftware.com/ref/http-status-codes.htm#code-301)
@@ -22,7 +20,6 @@
 
 ## GET vs. POST requests
 ======
-
 ### GET
 + Requests data from a specified resource
 
@@ -49,7 +46,6 @@
 ## Cookies ( not ![alt text][logo] )
 [logo]: http://images.clipartpanda.com/cookie-monster-clip-art-cookiecookiecookie.jpg
 ======
-
 + Cookies are small files which are stored on a user's computer
 + Designed to hold a modest amount of data specific to a particular client and website
 + Can be accessed either by the web server or the client computer
