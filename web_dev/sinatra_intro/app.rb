@@ -11,7 +11,15 @@ db.results_as_hash = true
 # add a query parameter
 # GET /
 get '/' do
-  @students = db.execute("SELECT * FROM students")
+  name = params[:name]
+  campus = params[:campus]
+  if name
+    @students = db.execute("SELECT * FROM students WHERE name = ?", [name])
+  elsif campus
+    @students = db.execute("SELECT * FROM students WHERE campus = ?", [campus])
+  else 
+    @students = db.execute("SELECT * FROM students")
+  end
   erb :home
 end
 
@@ -34,6 +42,20 @@ end
 
 get '/:person_1/loves/:person_2' do
   "#{params[:person_1]} loves #{params[:person_2]}"
+end
+
+get '/contact' do
+  "1705 Guadalupe Street | 1st Floor | Austin, TX 78701"
+end
+
+get '/great_job' do
+  name = params[:name]
+  name ? "Good job, #{name}!" : "Good job!"
+end
+
+get '/:val1/plus/:val2' do
+  sum = params[:val1].to_i + params[:val2].to_i
+  "#{sum}"
 end
 
 # write a GET route that retrieves
