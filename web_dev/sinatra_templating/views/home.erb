@@ -1,16 +1,26 @@
 <html>
 <head>
-  <title>Student Management System</title>
+  <title>Home</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <h1>Student Management System</h1>
   <p>Welcome to the student management system.</p>
-  <p>Click <a href="students/new">here</a> to create a new student.</p>
-  <ul>
+  <p>Click <a href="students/new">here</a> to create a new student</p>
+  <table style="width:75%">
+    <tr>
+      <th>Name</th>
+      <th>Age</th> 
+      <th>Campus</th>
+    </tr>
     <% @students.each do |student| %>
-      <li><%= student['name'] %>, <%= student['age'] %></li>
-    <% end %>
-  </ul>
+  <tr>
+      <td id="name"><%= student['name'] %></td>
+      <td id="age"><%= student['age'] %></td> 
+      <td id="campus"><%= student['campus'] %></td>
+  </tr>
+  <% end %>
+</table>
+
 </body>
 </html>
