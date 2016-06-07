@@ -11,17 +11,15 @@ db.results_as_hash = true
 # add a query parameter
 # GET /
 get '/' do
-  name = params[:name]
-  campus = params[:campus]
-  if name
-    @students = db.execute("SELECT * FROM students WHERE name = ?", [name])
-  elsif campus
-    @students = db.execute("SELECT * FROM students WHERE campus = ?", [campus])
-  else 
-    @students = db.execute("SELECT * FROM students")
-  end
+  @students = db.execute("SELECT * FROM students")
   erb :home
 end
+
+post '/search' do
+  @students = db.execute("SELECT * FROM students WHERE name = ? OR campus = ?", [params['name'], params['campus']])
+  erb :home
+end
+
 
 get '/students/new' do
   erb :new_student

@@ -7,6 +7,16 @@
   <h1>Student Management System</h1>
   <p>Welcome to the student management system.</p>
   <p>Click <a href="students/new">here</a> to create a new student</p>
+
+  <form action="/search" method="POST">
+    <input type="text" name="name" placeholder="Name">
+    <input type="text" name="campus" placeholder="Campus">
+    <button type="submit">Search</button>
+  </form>
+
+
+  <p><% @no_results %></p>
+
   <table style="width:75%">
     <tr>
       <th>Name</th>
