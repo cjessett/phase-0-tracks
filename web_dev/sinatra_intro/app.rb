@@ -2,6 +2,8 @@
 require 'sinatra'
 require 'sqlite3'
 
+set :public_folder, File.dirname(__FILE__) + '/static'
+
 db = SQLite3::Database.new("students.db")
 db.results_as_hash = true
 
@@ -9,7 +11,18 @@ db.results_as_hash = true
 # add a query parameter
 # GET /
 get '/' do
-  "#{params[:name]} is #{params[:age]} years old."
+  @students = db.execute("SELECT * FROM students")
+  erb :home
+end
+
+get '/students/new' do
+  erb :new_students
+end
+
+post '/students' do
+  db.execute("INSERT INTO students (name, age, campus)
+   VALUES (?, ?, ?)", [params['name'], params['age'].to_i, params['campus']])
+  redirect '/'
 end
 
 # write a GET route with
@@ -41,6 +54,11 @@ end
 # a particular student
 
 get '/students/:id' do
-  student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
-  student.to_s
+  @student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
+  @response = ""
+  @response << "ID: #{student['id']}<br>"
+  @response << "Name: #{student['name']}<br>"
+  @response << "Age: #{student['age']}<br>"
+  @response << "Campus: #{student['campus']}<br><br>"
+  @response
 end
